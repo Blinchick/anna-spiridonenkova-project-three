@@ -1,0 +1,35 @@
+// clouds animation
+
+@keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+.cloudOne {
+    animation: animateCloud 10s linear infinite;
+	transform: scale(0.35);
+}
+
+.cloudTwo {
+	animation: animateCloud 30s linear infinite;
+	transform: scale(0.65);
+}
+
+.cloudThree {
+	animation: animateCloud 15s linear infinite;
+	transform: scale(0.5);
+}
+
+
+// message animation
+
+
+@keyframes animateMessage {
+    0% { 
+        margin-left: -2000px; 
+    }
+}
