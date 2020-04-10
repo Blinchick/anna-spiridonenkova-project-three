@@ -250,6 +250,7 @@ html {
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  font-family: 'Henny Penny', cursive;
 }
 
 .wrapper {
@@ -262,9 +263,37 @@ html {
   font-size: 2rem !important;
 }
 
-.infoPage {
-  background: -webkit-gradient(linear, left top, left bottom, from(#61C1EB), to(#FFFFFF));
-  background: linear-gradient(#61C1EB 0%, #FFFFFF 100%);
+.samplePage {
+  background-color: #28853F;
+}
+
+.samplePage > div {
+  background-color: #FFFFFF;
+}
+
+.samplePage header,
+.samplePage main,
+.samplePage footer {
+  border: 4px solid #FFFFFF;
+}
+
+.samplePage header {
+  height: 20vh;
+  background-color: #FFD900;
+}
+
+.samplePage main {
+  height: 70vh;
+  background-color: #507DC7;
+}
+
+.samplePage footer {
+  height: 10vh;
+  background-color: #794D20;
+}
+
+.infoPage,
+.infoQuizPage {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -275,6 +304,17 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  height: 100vh;
+}
+
+.infoPage {
+  background: -webkit-gradient(linear, left top, left bottom, from(#61C1EB), to(#FFFFFF));
+  background: linear-gradient(#61C1EB 0%, #FFFFFF 100%);
+}
+
+.infoQuizPage {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#61C1EB));
+  background: linear-gradient(#FFFFFF 0%, #61C1EB 100%);
 }
 
 .message {
@@ -337,8 +377,27 @@ html {
   background-color: #28853F;
   width: 100%;
   height: 100px;
+}
+
+.infoPage .grass {
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
+}
+
+.infoQuizPage .grass {
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+.quizOne {
+  background-color: #61C1EB;
+  padding: 2rem;
+  height: 100vh;
+}
+
+.cloud p {
+  text-align: center;
+  font-size: 4rem;
 }
 
 @-webkit-keyframes animateCloud {
@@ -378,6 +437,20 @@ html {
           animation: animateCloud 15s linear infinite;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
+}
+
+.cloudFour {
+  -webkit-animation: animateCloud 13s linear infinite;
+          animation: animateCloud 13s linear infinite;
+  -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+}
+
+.cloudFive {
+  -webkit-animation: animateCloud 9s linear infinite;
+          animation: animateCloud 9s linear infinite;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
 }
 
 @-webkit-keyframes animateMessage {

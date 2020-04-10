@@ -1,0 +1,28 @@
+.samplePage {
+    background-color: $green;
+}
+
+.samplePage > div {
+    background-color: $white;
+}
+
+.samplePage header,
+.samplePage main, 
+.samplePage footer {
+    border: 4px solid $white;
+}
+
+.samplePage header {
+    height: 20vh;
+    background-color: $yellow;
+}
+
+.samplePage main {
+    height: 70vh;
+    background-color: $darkBlue;
+}
+
+.samplePage footer {
+    height: 10vh;
+    background-color: $brown;
+}

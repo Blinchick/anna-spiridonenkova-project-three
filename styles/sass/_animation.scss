@@ -24,6 +24,15 @@
 	transform: scale(0.5);
 }
 
+.cloudFour {
+    animation: animateCloud 13s linear infinite;
+	transform: scale(0.4);
+}
+
+.cloudFive {
+    animation: animateCloud 9s linear infinite;
+	transform: scale(0.3);
+}
 
 // message animation
 
