@@ -6,12 +6,67 @@ justify-content: space-between;
 height: 100vh;
 }
 
+.finalPage {
+	background-color: $blue;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.finalPage > div {
+	text-align: center;
+	background-color: $white;
+	border-radius: 40%;
+	padding: 5rem;
+	line-height: 2rem;
+}
+
+.finalPage p {
+	font-size: 16px;
+}
+
 .infoPage {
 	background: linear-gradient( $blue 0%, $white 100%);
 }
 
 .infoQuizPage {
 	background: linear-gradient($white 0%, $blue 100%);
+}
+
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-weight: normal;
+}
+
+h3 {
+	font-size: 3rem;
+}
+
+ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: $blue;
+	font-size: 2rem;
+}
+
+a:focus,
+a:hover {
+	color: $darkBlue;
 }
 
 .message {
@@ -21,7 +76,7 @@ height: 100vh;
     z-index: 1;
     transform: translateY(40px);
     padding: 1rem;
-    animation: animateMessage 5s ease-in;
+    animation: animateMessage 2s ease-in;
     border-radius: 100px;
     box-shadow: 0 8px 5px $black;
     position: relative;

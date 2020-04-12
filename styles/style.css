@@ -250,7 +250,7 @@ html {
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  font-family: 'Henny Penny', cursive;
+  font-family: 'Merienda', cursive;
 }
 
 .wrapper {
@@ -307,6 +307,36 @@ html {
   height: 100vh;
 }
 
+.finalPage {
+  background-color: #61C1EB;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.finalPage > div {
+  text-align: center;
+  background-color: #FFFFFF;
+  border-radius: 40%;
+  padding: 5rem;
+  line-height: 2rem;
+}
+
+.finalPage p {
+  font-size: 16px;
+}
+
 .infoPage {
   background: -webkit-gradient(linear, left top, left bottom, from(#61C1EB), to(#FFFFFF));
   background: linear-gradient(#61C1EB 0%, #FFFFFF 100%);
@@ -315,6 +345,43 @@ html {
 .infoQuizPage {
   background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#61C1EB));
   background: linear-gradient(#FFFFFF 0%, #61C1EB 100%);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #61C1EB;
+  font-size: 2rem;
+}
+
+a:focus,
+a:hover {
+  color: #507DC7;
 }
 
 .message {
@@ -327,8 +394,8 @@ html {
   -webkit-transform: translateY(40px);
           transform: translateY(40px);
   padding: 1rem;
-  -webkit-animation: animateMessage 5s ease-in;
-          animation: animateMessage 5s ease-in;
+  -webkit-animation: animateMessage 2s ease-in;
+          animation: animateMessage 2s ease-in;
   border-radius: 100px;
   -webkit-box-shadow: 0 8px 5px #0000001A;
           box-shadow: 0 8px 5px #0000001A;
@@ -400,6 +467,11 @@ html {
   font-size: 4rem;
 }
 
+.cloud p:hover {
+  color: #61C1EB;
+  font-weight: bold;
+}
+
 @-webkit-keyframes animateCloud {
   0% {
     margin-left: -1000px;
@@ -449,8 +521,8 @@ html {
 .cloudFive {
   -webkit-animation: animateCloud 9s linear infinite;
           animation: animateCloud 9s linear infinite;
-  -webkit-transform: scale(0.3);
-          transform: scale(0.3);
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
 }
 
 @-webkit-keyframes animateMessage {

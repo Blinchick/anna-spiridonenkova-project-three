@@ -16,11 +16,11 @@ $(function () {
         }, 1500);
     });
 
-    let moduleOne = () => {
+    moduleOne = () => {
         // module one learning info
         $('header').css('border', '4px solid #F5221B');
         Swal.fire({
-            title: 'Meet < header >!',
+            title: 'Meet <br> < header >!',
             text: 'It\'s called < header > because it\'s in the "head" of every web page.',
             confirmButtonText: 'Got it!'
         })
@@ -29,7 +29,7 @@ $(function () {
             $('header').css('border', '4px solid #FFFFFF');
             $('footer').css('border', '4px solid #F5221B');
             Swal.fire({
-                title: 'This is < footer >!',
+                title: 'This is <br> < footer >!',
                 text: 'It\'s at the very bottom of every web page. Just like your foot is at the very bottom of your body.',
                 confirmButtonText: 'Got it!'
             })
@@ -40,7 +40,7 @@ $(function () {
             .then(() => {
                 $('main').css('border', '4px solid #F5221B');
             Swal.fire({
-                title: 'This is < main >!',
+                title: 'This is <br>< main >!',
                 text: 'It has everything you want to see when you open the web page.',
                 confirmButtonText: 'Got it!'
             })
@@ -87,48 +87,29 @@ $(function () {
             });
         }
         setTimeout(() => {
-            quizOne()
+            quizOne();
         }, 1500); 
     });
 
     // QUIZ part
-    // success and fail messages
-    success = () => {
-        Swal.fire({
-            icon: 'success',
-            title: 'YES',
-            showConfirmButton: false,
-            timer: 1500
-        })
-    }
-
-    fail = () => {
-        Swal.fire({
-            icon: 'error',
-            title: 'STUPID',
-            showConfirmButton: false
-        })
-    }
-
     //questions
     questionOne = () => {
-        $('.quizOne .cloud p').empty();
         Swal.fire({
-            text: 'Catch the footer cloud.',
+            text: 'What is on the bottom of a web page?',
             confirmButtonText: 'On it!'
         });
     }
 
     questionTwo = () => {
         Swal.fire({
-            text: 'Catch the main cloud.',
+            text: 'Where can you find major information of a web page?',
             confirmButtonText: 'On it!'
         });
     }
 
     questionThree = () => {
         Swal.fire({
-            text: 'Catch the header cloud.',
+            text: 'What\'s on the top of a page?',
             confirmButtonText: 'On it!'
         });
     }
@@ -152,35 +133,33 @@ $(function () {
         return randomQuestionsArray;
 
     }
-    console.log(randomQuestions());
-
+    
     randomTags = () => {
-    //making random tags
-        let myTags = ['< aside \>', '< footer \>', '< main \>', '< div \>', '< header \>',]
+        //making random tags
+        let myTags = ['<p>< aside \></p>', '<p>< footer \></p>', '<p>< main \></p>', '<p>< div \></p>', '<p>< header \></p>',]
         let randomTag1 = myTags[Math.floor(Math.random() * myTags.length)];
         let tagIndex1 = myTags.indexOf(randomTag1);
         myTags.splice(tagIndex1, 1);
-
+        
         let randomTag2 = myTags[Math.floor(Math.random() * myTags.length)];
         let tagIndex2 = myTags.indexOf(randomTag2);
         myTags.splice(tagIndex2, 1);
-
+        
         let randomTag3 = myTags[Math.floor(Math.random() * myTags.length)];
         let tagIndex3 = myTags.indexOf(randomTag3);
         myTags.splice(tagIndex3, 1);
-
+        
         let randomTag4 = myTags[Math.floor(Math.random() * myTags.length)];
         let tagIndex4 = myTags.indexOf(randomTag4);
         myTags.splice(tagIndex4, 1);
-
+        
         let randomTag5 = myTags[0];
-
+        
         let myNewTags = [randomTag1, randomTag2, randomTag3, randomTag4, randomTag5];
-
+        
         return myNewTags;
     }
-    console.log(randomTags());
-
+    
     addTagsToClouds = () => {
         let tags = randomTags();
         $(".quizOne .cloudOne .cloud p").append(tags[0]);
@@ -189,107 +168,78 @@ $(function () {
         $(".quizOne .cloudFour .cloud p").append(tags[3]);
         $(".quizOne .cloudFive .cloud p").append(tags[4]);
     }
-
+    
     quizOne = () => {
         let questions = randomQuestions();
         questions[0]();
+        addTagsToClouds();
+
+        if (questions[0] === questionOne) {
+            $('.quizOne .cloud p:contains("footer")').on('click', function () {
+                $('.quizOne .cloud p').empty();
+                finalMessage();
+            });
+            $('.quizOne .cloud p:not(:contains("footer"))').on('click', function () {
+                fail();
+            });
+
+        } else if (questions[0] === questionTwo) {
+            $('.quizOne .cloud p:contains("main")').on('click', function () {
+                $('.quizOne .cloud p').empty();
+                finalMessage();
+            });
+            $('.quizOne .cloud p:not(:contains("main"))').on('click', function () {
+                fail();
+            });
+
+        } else if (questions[0] === questionThree) {
+            $('.quizOne .cloud p:contains("header")').on('click', function () {
+                $('.quizOne .cloud p').empty();
+                finalMessage();
+            });
+            $('.quizOne .cloud p:not(:contains("header"))').on('click', function () {
+                fail();
+            });
+        } else {
+            fail();
+        }
     }
-    // let quizOne = () => {
-    //     Swal.fire({
-    //         text: 'Catch the cloud with a tag you can find in the bottom of a web page.',
-    //         confirmButtonText: 'On it!'
-    //     }) 
 
-        // .then (() => {
-        //     $(".quizOne .cloudOne .cloud p").append($(aside));
-        //     $(".quizOne .cloudTwo .cloud p").append($(footer));
-        //     $(".quizOne .cloudThree .cloud p").append($(div));
-        //     $(".quizOne .cloudFour .cloud p").append($(header));
-        //     $(".quizOne .cloudFive .cloud p").append($(main));
+    //in case user scrolls to another section
+    $('.infoPage, .samplePage, .infoQuizPage, .finalPage').on('click', function () {
+        $('.quizOne .cloud p').empty();
+    })
 
-            // $(".quizOne .cloud p:not(:contains('footer'))").on('click', function () {
-            //     fail();
-            // });
+    fail = () => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Try again!',
+            showConfirmButton: false
+        }).then((result) => {
+            $('.quizOne .cloud p').empty();
+            return quizOne();
+        });
+    }
 
-            // $(".quizOne .cloud p:contains('footer')").on('click', function() {
-            //     success()
-            //     $(".quizOne .cloud p").empty();
-            // })
-
-            // $(".quizOne .cloud").on('click', function () {
-            //     $(".quizOne .cloud p:contains('footer')").click(success())
-                // $(".quizOne .cloud p:not(:contains('footer'))").click(fail());
-    //         })
-    //     });
-    // }
-
-    // let qOne = () => {
-    //     Swal.fire({
-    //         title: 'Where is < header >?'
-    //     })
-    // }
-
-    // let qTwo = () => {
-    //     Swal.fire({
-    //         title: 'Where is < main >?'
-    //     })
-    // }
-
-    // let qThree = () => {
-    //     Swal.fire({
-    //         title: 'Where is < footer >?'
-    //     })
-    // }
-
-    // let quizOne = () => {
-    //     qOne();
-    //     $('.quizOne header, .quizOne main, .quizOne footer').css('border', '2px solid red');
-
-    //     $('.quizOne footer, .quizOne main').click(function () {
-    //         fail();
-    //     });
-
-    //     $('.quizOne header').click(function (){
-    //         $('.quizOne header').css('border', '3px solid green');
-    //         $('.quizOne main, .quizOne footer').css('border', 'none');
-    //         success();   
-    //         setTimeout(() => {
-    //             quizTwo()
-    //         }, 2000);
-    //     });
-    // }
-
-    // let quizTwo = () => {
-    //     qTwo();
-    //     $('.quizOne header, .quizOne main, .quizOne footer').css('border', '2px solid red');
-
-    //     $('.quizOne footer, .quizOne header').click(function () {
-    //         fail();
-    //     });
-
-    //     $('.quizOne main').click(function () {
-    //         $('.quizOne main').css('border', '3px solid green');
-    //         $('.quizOne header, .quizOne footer').css('border', 'none');
-    //         success();
-    //         setTimeout(() => {
-    //             quizThree()
-    //         }, 2000);
-    //     });
-    // }
-
-    // let quizThree = () => {
-    //     qThree();
-    //     $('.quizOne header, .quizOne main, .quizOne footer').css('border', '2px solid red');
-
-    //     $('.quizOne main, .quizOne header').click(function () {
-    //         fail();
-    //     });
-
-    //     $('.quizOne footer').click(function () {
-    //         $('.quizOne footer').css('border', '3px solid green');
-    //         $('.quizOne header, .quizOne main').css('border', 'none');
-    //         success();
-    //     });
-    // }
+    finalMessage = () => {
+        Swal.fire({
+            icon: 'success',
+            text: "That's correct! Wanna try one more time?",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, let\'s do it!',
+            cancelButtonText: 'No, I\'m good.'
+        }).then((result) => {
+            if (result.value) {
+                return quizOne();
+            } else {
+                $('html, body').animate({
+                    scrollTop: $("#finalPage").offset().top
+                }, 1000);
+                window.scrollTo(0, 100);
+            }
+        });
+    }
 
 });
