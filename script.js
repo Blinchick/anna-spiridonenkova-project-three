@@ -37,41 +37,42 @@ $(function () {
                     $('footer').css('border', '4px solid #FFFFFF');
                 })
                     
-            .then(() => {
-                $('main').css('border', '4px solid #F5221B');
+        .then(() => {
+            $('main').css('border', '4px solid #F5221B');
             Swal.fire({
-                title: 'This is <br>< main >!',
-                text: 'It has everything you want to see when you open the web page.',
-                confirmButtonText: 'Got it!'
-            })
+            title: 'This is <br>< main >!',
+            text: 'It has everything you want to see when you open the web page.',
+            confirmButtonText: 'Got it!'
+        })
             
-            .then(() => {
-                $('main').css('border', '4px solid #FFFFFF');
-            })
+        .then(() => {
+            $('main').css('border', '4px solid #FFFFFF');
+        })
 
-                .then(() =>{
+        .then(() =>{
 
-                    Swal.fire({
-                        title: 'Hooray!',
-                        text: "You just learnt the most popular tags used to create any web page. Now it's time for the real challenge. Are you ready?",
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, let\'s do it!',
-                        cancelButtonText: 'I want to review tags one more time'
-                    }).then((result) => {
-                        if (result.value) {
-                            $('html, body').animate({
-                                scrollTop: $("#infoQuizPage").offset().top
-                            }, 1000);
-                            window.scrollTo(0, 100);
-                        } else {
-                            return moduleOne();
-                        }
-                    });
-                });
+            Swal.fire({
+                    title: 'Hooray!',
+                    text: "You just learnt the most popular tags used to create any web page. Now it's time for the real challenge. Are you ready?",
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',  
+                    confirmButtonText: 'Yes, let\'s do it!',
+                    cancelButtonText: 'I want to review tags one more time'
+                })
+        .then((result) => {
+            if (result.value) {
+                $('html, body').animate({
+                    scrollTop: $("#infoQuizPage").offset().top
+                }, 1000);
+                window.scrollTo(0, 100);
+                } else {
+                    return moduleOne();
+                }
             });
         });
+    });
+});
     };
 
     $('a.quizButton').on('click', function (event) {
